@@ -9,9 +9,11 @@ FIND_PACKAGE(OpenCV REQUIRED)
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
-rosbuild_add_executable(${PROJECT_NAME}
-main.cc
-Thirdparty/DLib/FileFunctions.cpp)
+rosbuild_add_executable(${PROJECT_NAME} main.cc Thirdparty/DLib/FileFunctions.cpp)
 
-target_link_libraries (${PROJECT_NAME}
-${OpenCV_LIBS})
+target_link_libraries (${PROJECT_NAME} ${OpenCV_LIBS})
+target_link_libraries (${PROJECT_NAME} ${OpenCV_LIBS})
+target_link_libraries (${PROJECT_NAME} console_bridge)
+target_link_libraries (${PROJECT_NAME} ${Boost_FILESYSTEM_LIBRARY})
+target_link_libraries (${PROJECT_NAME} ${Boost_SYSTEM_LIBRARY})
+

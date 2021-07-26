@@ -1,17 +1,24 @@
 # BagFromImages
 
-ROS package to generate a rosbag from a collection of images. Images are ordered alphabetically. The timestamp for each image is assigned according to the specified frequency. 
+ROS package to generate a rosbag from a collection of images. Images are ordered alphabetically. The timestamp for each image is assigned according to the specified frequency.
 
 The bag will publish the images to topic `/camera/image_raw`.
 
 Tested in ROS Fuerte.
+
+## Dependencies
+Along with ROS, make sure following dependencies.
+```
+sudo apt install ros-DIST-opencv-brige
+sudo apt install ros-DIST-image-transport
+```
 
 ## Installation
 
 In your ROS_PACKAGE_PATH (check your environment variable ROS_PACKAGE_PATH):
 
     git clone https://github.com/raulmur/BagFromImages.git BagFromImages
-    
+
     cd BagFromImages
     mkdir build
     cd build
@@ -19,9 +26,12 @@ In your ROS_PACKAGE_PATH (check your environment variable ROS_PACKAGE_PATH):
     make
 
 ## Usage:
+```
+roscore
+rosrun BagFromImages BagFromImages PATH_TO_IMAGES IMAGE_EXTENSION FREQUENCY PATH_TO_OUPUT_BAG
+```
 
-    rosrun BagFromImages BagFromImages PATH_TO_IMAGES IMAGE_EXTENSION FREQUENCY PATH_TO_OUPUT_BAG
-  
+Arguments
  - `PATH_TO_IMAGES`: Path to the folder with the images
  - `IMAGE_EXTENSION`: .jpg, .png, etc. write the dot "."
  - `FREQUENCY`: Frames per second.
